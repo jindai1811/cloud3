@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+						http://www.springframework.org/schema/aop 
+						http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			 			http://www.springframework.org/schema/tx 
+						http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+						http://www.springframework.org/schema/context
+       					http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       					http://www.springframework.org/schema/mvc
+					    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd  
+       ">
+    <!-- 开启注解 -->
+    <context:component-scan base-package="com.serket.cloud">
+        <!--过滤不需要的类-->
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.RestController"></context:exclude-filter>
+    </context:component-scan>
+    <!-- 读取properties配置文件 -->
+    <bean
+            class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <!-- 配置文件的位置 -->
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 配置数据源 -->
+    <!-- 使用的是c3p0 数据源 -->
+    <bean id="dataSource" destroy-method="close"
+          class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${driverClass}"/>
+        <property name="jdbcUrl" value="${jdbcUrl}"/>
+        <property name="user" value="${user}"/>
+        <property name="password" value="${password}"/>
+        <property name="maxPoolSize" value="40"/>
+        <property name="minPoolSize" value="1"/>
+        <property name="initialPoolSize" value="1"/>
+        <!-- 连接的最大空闲时间 -->
+        <property name="maxIdleTime" value="60"/>
+        <!--当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出 SQLException,如设为0则无限期等待。单位毫秒。Default:
+            0 -->
+        <property name="checkoutTimeout" value="2000"/>
+    </bean>
+    <!-- 配置mbatis -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="plugins">
+            <list>
+               <bean class="com.serket.cloud.util.PageHelper" p:dialect="mysql">
+
+               </bean>
+            </list>
+
+        </property>
+        <!--<property name="configLocation">-->
+        <!--<value>classpath:configuration.xml</value>-->
+        <!--</property>-->
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:com/serket/cloud/mapper/*.xml</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+    </bean>
+    <!-- 事务管理器 -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans> 

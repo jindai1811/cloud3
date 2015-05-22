@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.serket.cloud.mapper.PharmacyMapper">
+    <resultMap type="com.serket.cloud.bean.Pharmacy" id="result">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="remarks" column="remarks"/>
+        <result property="registerDate" column="registerDate"/>
+        <result property="phone" column="phone"/>
+        <result property="address" column="address"/>
+        <result property="state" column="state"/>
+    </resultMap>
+    <insert id="save" parameterType="com.serket.cloud.bean.Pharmacy">
+        INSERT INTO `cloud`.`pharmacy`
+        (`id`,
+        `name`,
+        `password`,
+        `remarks`,
+        `registerdate`,
+        `phone`,
+        `address`,
+        `State`)
+        VALUES (UUID(),
+        #{name},
+        #{password},
+        #{remarks},
+        #{registerDate},
+        #{phone},
+        #{address},
+        #{state})
+    </insert>
+    <!-- 查询列表 -->
+    <select id="list" parameterType="com.serket.cloud.util.Page" resultMap="result">
+        SELECT * FROM pharmacy
+        <!--<where>
+            <if test="where.rolename !=null">
+                and roleName LIKE CONCAT(CONCAT('%',#{rolename}),'%')
+            </if>
+            <if test="where.remark !=null">
+                and remark LIKE CONCAT(CONCAT('%',#{remark}),'%')
+            </if>
+        </where>-->
+    </select>
+    <select id="findAll" resultMap="result">
+        SELECT  * FROM  pharmacy
+    </select>
+
+</mapper>
