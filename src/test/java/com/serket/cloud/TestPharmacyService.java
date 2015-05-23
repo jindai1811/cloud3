@@ -23,7 +23,7 @@ public class TestPharmacyService {
             pharmacy.setName("tome"+i);
             pharmacy.setPassword("123456"+i);
             pharmacy.setAddress("北京海淀");
-            pharmacy.setPhone("12333333333333");
+            pharmacy.setPhone("1233333");
             pharmacy.setRegisterDate(new Timestamp(System.currentTimeMillis()));
             pharmacy.setRemarks("beizhu");
             pharmacy.setState(0);
