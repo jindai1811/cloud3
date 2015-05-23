@@ -26,8 +26,10 @@ public class PharmacyControllerImpl extends BaseController implements PharmacyCo
     }
 
     public Message login(Pharmacy pharmacy) {
-        return null;
+        String accessToken= service.login(pharmacy);
+        return accessToken==null?failed("User name or password error"):success(accessToken);
     }
+
 
     public Page list(Page view, Pharmacy pharmacy) {
         view.setWhere(pharmacy);

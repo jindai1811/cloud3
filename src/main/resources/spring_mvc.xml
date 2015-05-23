@@ -26,6 +26,7 @@
 	<bean name="/*/*.html"
 				 class="org.springframework.web.servlet.mvc.UrlFilenameViewController">
 	</bean>
+
 	<bean name="/*.html"
 		  class="org.springframework.web.servlet.mvc.UrlFilenameViewController">
 	</bean>

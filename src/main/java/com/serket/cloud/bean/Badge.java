@@ -14,132 +14,75 @@ public class Badge implements java.io.Serializable
 	// Fields
 
 	private String id;
-	private Pharmacy pharmacy;
+	private String  pharmacyId;
 	private String content;
 	private Timestamp createDate;
-	private String qrcoide;
-	private String userid;
-	private String medicineid;
+	private String qrCode;
+	private String userId;
+	private String medicineId;
 	private Integer state;
-	private Set badgehistories = new HashSet(0);
 
-	// Constructors
-
-	/** default constructor */
-	public Badge()
-	{
+	public String getId() {
+		return id;
 	}
 
-	/** minimal constructor */
-	public Badge(String id)
-	{
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	/** full constructor */
-	public Badge(String id, Pharmacy pharmacy, String content, Timestamp createDate, String qrcoide, String userid, String medicineid, Integer state, Set badgehistories)
-	{
-		this.id = id;
-		this.pharmacy = pharmacy;
-		this.content = content;
-		this.createDate = createDate;
-		this.qrcoide = qrcoide;
-		this.userid = userid;
-		this.medicineid = medicineid;
-		this.state = state;
-		this.badgehistories = badgehistories;
+	public String getPharmacyId() {
+		return pharmacyId;
 	}
 
-	// Property accessors
-
-	public String getId()
-	{
-		return this.id;
+	public void setPharmacyId(String pharmacyId) {
+		this.pharmacyId = pharmacyId;
 	}
 
-	public void setId(String id)
-	{
-		this.id = id;
+	public String getContent() {
+		return content;
 	}
 
-	public Pharmacy getPharmacy()
-	{
-		return this.pharmacy;
-	}
-
-	public void setPharmacy(Pharmacy pharmacy)
-	{
-		this.pharmacy = pharmacy;
-	}
-
-	public String getContent()
-	{
-		return this.content;
-	}
-
-	public void setContent(String content)
-	{
+	public void setContent(String content) {
 		this.content = content;
 	}
 
-	public Timestamp getCreateDate()
-	{
-		return this.createDate;
+	public Timestamp getCreateDate() {
+		return createDate;
 	}
 
-	public void setCreateDate(Timestamp createDate)
-	{
+	public void setCreateDate(Timestamp createDate) {
 		this.createDate = createDate;
 	}
 
-	public String getQrcoide()
-	{
-		return this.qrcoide;
+	public String getQrCode() {
+		return qrCode;
 	}
 
-	public void setQrcoide(String qrcoide)
-	{
-		this.qrcoide = qrcoide;
+	public void setQrCode(String qrCode) {
+		this.qrCode = qrCode;
 	}
 
-	public String getUserid()
-	{
-		return this.userid;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUserid(String userid)
-	{
-		this.userid = userid;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
-	public String getMedicineid()
-	{
-		return this.medicineid;
+	public String getMedicineId() {
+		return medicineId;
 	}
 
-	public void setMedicineid(String medicineid)
-	{
-		this.medicineid = medicineid;
+	public void setMedicineId(String medicineId) {
+		this.medicineId = medicineId;
 	}
 
-	public Integer getState()
-	{
-		return this.state;
+	public Integer getState() {
+		return state;
 	}
 
-	public void setState(Integer state)
-	{
+	public void setState(Integer state) {
 		this.state = state;
 	}
-
-	public Set getBadgehistories()
-	{
-		return this.badgehistories;
-	}
-
-	public void setBadgehistories(Set badgehistories)
-	{
-		this.badgehistories = badgehistories;
-	}
-
 }

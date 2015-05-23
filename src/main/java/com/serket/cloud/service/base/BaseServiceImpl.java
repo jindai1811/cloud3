@@ -59,4 +59,10 @@ public class BaseServiceImpl<T> extends SqlSessionDaoSupport implements
         String mapper = mapperNamespace + ".del";
         getSqlSession().delete(mapper, ids);
     }
+
+    public String getMapperNamespace(){
+
+        return mapperNamespace;
+    }
+
 }

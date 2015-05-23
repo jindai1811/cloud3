@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by WangYa on 2015/5/21.
  */
 @RequestMapping("/prescription")
-public interface Prescription {
+public interface PrescriptionController {
     /**
-     * É¨¶şÎ¬Âë
-     * @param userid  ÓÃ»§id
-     * @param qrcode ¶şÎ¬ÂëÄÚÈİ
-     * @return ¶ÔÓ¦ÄÚÈİ
+     * æ‰«äºŒç»´ç 
+     * @param userid  ç”¨æˆ·id
+     * @param qrcode äºŒç»´ç å†…å®¹
+     * @return å¯¹åº”å†…å®¹
      */
     @RequestMapping("/{userid}")
     public Message getContent(@RequestParam("userid")String userid,@RequestParam("qrcode") String qrcode);

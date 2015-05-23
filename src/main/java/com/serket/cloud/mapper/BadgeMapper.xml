@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.serket.cloud.mapper.BadgeMapper">
+    <resultMap type="com.serket.cloud.bean.Badge" id="result">
+        <id property="id" column="id"/>
+        <result property="pharmacyId" column="pharmacyId"/>
+        <result property="content" column="content"/>
+        <result property="createDate" column="createDate"/>
+        <result property="qrCode" column="qrCode"/>
+        <result property="userId" column="userId"/>
+        <result property="medicineId" column="medicineId"/>
+        <result property="state" column="state"/>
+    </resultMap>
+    <insert id="save" parameterType="com.serket.cloud.bean.Badge">
+
+        INSERT INTO `cloud`.`badge`
+            (`id`,
+             `content`,
+             `createDate`,
+             `pharmacyid`,
+             `qrCode`,
+              `medicineid`,
+             `state`)
+        VALUES (UUID(),
+                #{content},
+                #{createDate},
+                #{pharmacyId},
+                #{qrCode},
+                 #{medicineId},
+                #{state})
+    </insert>
+
+</mapper>

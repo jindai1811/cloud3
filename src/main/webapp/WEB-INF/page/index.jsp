@@ -4,6 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" > </meta>
     <title>Cloud</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
@@ -20,7 +21,7 @@
           apply the skin class to the body tag so the changes take effect.
     -->
     <link href="dist/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css"/>
-
+    <link href="bootstrap/fonts/fontawesome-webfont.woff2">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -71,7 +72,7 @@
             <!-- Navbar Right Menu -->
         </nav>
     </header>
-    <!-- Left side column. contains the logo and sidebar -->
+    <!-- Left    side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
 
         <!-- sidebar: style can be found in sidebar.less -->
@@ -81,7 +82,7 @@
                 <li class="header">NAVIGATION</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="treeview">
-                    <a href="#"><i class='fa fa-link'></i> <span>Pharmacy</span> <i
+                    <a href="#"><i class='fa fa-institution'></i> <span>Pharmacy</span> <i
                             class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a href="./pharmacy/pharmacy_list.html">PharmacyList</a></li>

@@ -42,6 +42,11 @@
             </if>
         </where>-->
     </select>
+
+    <select id="login" parameterType="com.serket.cloud.bean.Pharmacy" resultMap="result">
+        SELECT  * FROM pharmacy
+        WHERE `name`=#{name} and `password`=#{password}
+    </select>
     <select id="findAll" resultMap="result">
         SELECT  * FROM  pharmacy
     </select>
