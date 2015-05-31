@@ -3,10 +3,10 @@ package com.serket.cloud.bean;
 import java.sql.Timestamp;
 
 /**
- * Logs entity. @author MyEclipse Persistence Tools
+ * Log entity. @author MyEclipse Persistence Tools
  */
 
-public class Logs implements java.io.Serializable
+public class Log implements java.io.Serializable
 {
 
 	// Fields
@@ -16,22 +16,30 @@ public class Logs implements java.io.Serializable
 	private Timestamp accessDate;
 	private String pharmacyid;
 	private String userid;
+	private String url;
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	// Constructors
 
 	/** default constructor */
-	public Logs()
+	public Log()
 	{
 	}
 
 	/** minimal constructor */
-	public Logs(String id)
+	public Log(String id)
 	{
 		this.id = id;
 	}
 
 	/** full constructor */
-	public Logs(String id, String ip, Timestamp accessDate, String pharmacyid, String userid)
+	public Log(String id, String ip, Timestamp accessDate, String pharmacyid, String userid)
 	{
 		this.id = id;
 		this.ip = ip;

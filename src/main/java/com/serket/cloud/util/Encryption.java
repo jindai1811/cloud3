@@ -37,7 +37,7 @@ public class Encryption {
         //去掉uuid中的-
         uuid = uuid.replace("-", "");
         // 给uuid 随机添加一些特殊符号
-        return addRandomString(uuid,40);
+        return getdownload()+"?"+addRandomString(uuid,40);
     }
     public static  String accessToken(){
         String uuid = UUID.randomUUID().toString();

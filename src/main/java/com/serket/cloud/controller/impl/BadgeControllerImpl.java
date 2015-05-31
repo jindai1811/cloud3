@@ -25,7 +25,15 @@ public class BadgeControllerImpl extends BaseController implements BadgeControll
         Badge badge = new Badge();
         badge.setPharmacyId(pharmacyid);
         badge.setContent(content);
-        String qrcode = service.generateQRCode(badge);
-        return qrcode == null ? failed("generate filed") : success(qrcode);
+        String qrCode = service.generateQRCode(badge);
+        return qrCode == null ? failed("generate filed") : success(qrCode);
+    }
+
+    public Message getContent(@PathVariable("userid") String userid, @RequestParam("qrcode") String qrcode) {
+        try {
+            return success(service.getContent(userid, qrcode));
+        } catch (Exception e) {
+            return failed("get contetnt filed");
+        }
     }
 }

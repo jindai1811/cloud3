@@ -13,7 +13,7 @@
     </resultMap>
     <insert id="save" parameterType="com.serket.cloud.bean.Badge">
 
-        INSERT INTO `cloud`.`badge`
+        INSERT INTO `badge`
             (`id`,
              `content`,
              `createDate`,
@@ -29,5 +29,24 @@
                  #{medicineId},
                 #{state})
     </insert>
-
+    <!--更新用户userid-->
+    <update id="updataUserid" parameterType="map">
+      UPDATE  badge SET userid =#{userid} WHERE qrCode=#{qrcode}
+    </update>
+    <!--获取二维码对应的内容-->
+    <select id="getContent" parameterType="map" resultMap="result">
+      SELECT  `id`, `content` FROM  badge WHERE `qrCode`=#{qrcode}
+    </select>
+    <!--添加历史记录-->
+    <insert id="addHistrory" parameterType="map">
+      INSERT INTO `cloud`.`badgehistory`
+            (`id`,
+             `Badgeid`,
+             `ConfirmTime`,
+             `userid`)
+      VALUES (UUID(),
+        #{badgeId},
+        #{confirmTime},
+        #{userid});
+    </insert>
 </mapper>

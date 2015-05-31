@@ -14,4 +14,12 @@ public interface BadgeService extends BaseService<Badge> {
      * @return 二维码
      */
     public String generateQRCode(Badge badge);
+
+    /**
+     * 获取二维码
+     * @param userid 用户id
+     * @param qrcode 二维码
+     * @return 内容
+     */
+    public String  getContent(String userid, String qrcode);
 }

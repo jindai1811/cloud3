@@ -14,6 +14,7 @@ public class Sessioninfo implements java.io.Serializable
 	private String accessToken;
 	private String verification;
 
+
 	// Constructors
 
 	/** default constructor */
@@ -36,7 +37,7 @@ public class Sessioninfo implements java.io.Serializable
 		this.verification = verification;
 	}
 
-	// Property accessors
+	// Property 	accessors
 
 	public String getId()
 	{

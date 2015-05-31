@@ -36,4 +36,7 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/page/" p:suffix=".jsp"></bean>
+	<mvc:interceptors>
+		<bean class="com.serket.cloud.interceptor.LogsInterceptor"></bean>
+	</mvc:interceptors>
 </beans>
