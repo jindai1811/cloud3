@@ -37,6 +37,11 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/page/" p:suffix=".jsp"></bean>
 	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/badge/qrcode/*" />
+			<mvc:mapping path="/badge/content/*" />
+			<bean class="com.serket.cloud.interceptor.AccessTokenInterceptor"></bean>
+		</mvc:interceptor>
 		<bean class="com.serket.cloud.interceptor.LogsInterceptor"></bean>
 	</mvc:interceptors>
 </beans>
